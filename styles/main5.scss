@@ -1,0 +1,127 @@
+@import 'base/variables';
+@import 'base/mixins';
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('./fonts/OpenSans-Regular.ttf');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'OpenSans';
+    src: url('./fonts/OpenSans-Bold.ttf');
+    font-weight: bold;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    @include box(100vw, 100vh);
+    font-family: 'OpenSans', sans-serif;
+    color: $text_color;
+}
+.header {
+    @include box(100%, 65px);
+    padding: 19px;
+    background-color: $bg_color;
+    display: flex;
+    justify-content: center;
+}
+.main {
+    @include box(100%, 100%);
+    border-top: 1px solid $border_color;
+    border-bottom: 1px solid $border_color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.censor {
+    @include box(660px, 250px);
+    padding: 10px;
+    background-color: $bg_color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__bad {
+        font-weight: bold;
+        font-size: 18px;
+    }
+    &__list {
+        font-weight: bold;
+        font-size: 18px;
+        color: $red;
+    }
+    &__row {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__text {
+        padding: 9px;
+        border: 1px solid #e1e1e1;
+        border-radius: 4px;
+        outline: none;
+        color: $text3_color;
+        &::placeholder {
+            color: $text3_color;
+        }
+        &:focus {
+            box-shadow: 0 0 0 3px $blue_focus;
+        }
+        &_set {
+            @include box(425px, 38px);
+        }
+        &_area {
+            @include box(100%, 85px);
+            resize: none
+        }
+    }
+    &__btn {
+        @include box(100px, 38px);
+        border: none;
+        border-radius: 4px;
+        color: $text2_color;
+        font-size: 14px;
+        &_add {
+            background-color: $yellow;
+            color: $text_color;
+            &:hover {
+                background-color: $yellow_hover;
+            }
+            &:focus {
+                box-shadow: 0 0 0 3px $yellow_focus;
+            }
+        }
+        &_reset {
+            background-color: $red;
+            &:hover {
+                background-color: $red_hover;
+            }
+            &:focus {
+                box-shadow: 0 0 0 3px $red_focus;
+            }
+        }
+        &_check {
+            width: 100%;
+            background-color: $green;
+            &:hover {
+                background-color: $green_hover;
+            }
+            &:focus {
+                box-shadow: 0 0 0 3px $green_focus;
+            }
+        }
+    }
+}
+.footer {
+    @include box(100%, 25px);
+    background-color: $bg_color;
+}
+
+.red {
+    border: 1px solid $red;
+}
+.green {
+    border: 1px solid $green;
+}
